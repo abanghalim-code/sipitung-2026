@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#082d68">
+<title>Countdown Pilkades 2026 | SIPITUNG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#082d68;--blue:#0875d1;--green:#12a66a;--orange:#f59e0b;--ink:#102c55}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Poppins,Arial,sans-serif;color:var(--ink)}
+body{min-height:100vh;background:radial-gradient(circle at 15% 10%,#dceeff 0,transparent 35%),linear-gradient(145deg,#f5f9ff,#e8f2ff);display:flex;align-items:center;justify-content:center;padding:10px}
+.shell{width:min(1440px,100%);background:#fff;border:1px solid #c9d9ed;border-radius:18px;overflow:hidden;box-shadow:0 16px 44px #082d6822}
+.topline{height:6px;background:linear-gradient(90deg,var(--blue) 0 34%,var(--green) 34% 67%,var(--orange) 67%)}
+.hero{padding:13px 24px 12px;text-align:center;background:linear-gradient(135deg,#fff,#f4f8ff)}
+.brand{display:flex;justify-content:center;align-items:center;gap:14px}.brand img{width:76px;height:76px;object-fit:contain}.brand-copy{text-align:left}.eyebrow{font-size:10px;font-weight:900;letter-spacing:1.5px;color:var(--blue)}h1{margin:1px 0;font-size:clamp(28px,3.4vw,43px);line-height:1.05;color:var(--navy);font-weight:900}.subtitle{font-size:clamp(12px,1.5vw,17px);font-weight:800;color:#a51f2b;letter-spacing:.4px}.slogan{margin:8px auto 0;font-weight:900;font-size:15px;color:var(--navy)}.slogan span{display:inline-block;padding:6px 15px;border-radius:7px;color:#fff;margin:0 4px;box-shadow:0 4px 10px #102c5522}.blue{background:var(--blue)}.green{background:var(--green)}.orange{background:var(--orange)}.tagline{margin-top:5px;color:#435c7a;font-size:10px;font-weight:800;line-height:1.45}
+.count-area{padding:12px 24px 14px;text-align:center;background:linear-gradient(180deg,#f6faff,#eaf3ff)}.count-area h2{margin:0;color:var(--navy);font-size:23px;font-weight:900;letter-spacing:.8px}.count-area>p{margin:2px 0 10px;color:#536b87;font-size:12px;font-weight:600}.count-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;max-width:760px;margin:0 auto}.count-box{padding:9px 8px 8px;border:2px solid #c8dcf4;border-radius:13px;background:#fff;box-shadow:0 6px 16px #0b4d8b12}.count-box:nth-child(1){border-top:4px solid var(--blue)}.count-box:nth-child(2){border-top:4px solid var(--green)}.count-box:nth-child(3){border-top:4px solid var(--orange)}.count-box:nth-child(4){border-top:4px solid var(--navy)}.count-box strong{display:block;font-size:clamp(32px,4vw,46px);line-height:1.05;color:var(--navy);font-weight:900;font-variant-numeric:tabular-nums}.count-box span{display:block;margin-top:3px;font-size:10px;text-transform:uppercase;letter-spacing:1.3px;color:#536b87;font-weight:900}.date-info{margin:8px auto 0;font-weight:800;color:var(--navy)}.date-info strong{display:block;font-size:16px}.date-info span{display:block;color:#526985;font-size:11px;margin-top:1px}
+.villages{padding:10px 22px 12px;background:#fff}.section-title{text-align:center;font-weight:900;color:var(--navy);font-size:12px;letter-spacing:.8px;margin-bottom:7px}.logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:850px;margin:auto}.village{display:flex;align-items:center;justify-content:center;gap:9px;padding:6px 10px;border:1px solid #d9e5f2;border-radius:11px;background:#fbfdff;min-width:0}.village img{width:46px;height:46px;object-fit:contain;flex:none}.village strong{display:block;font-size:12px;color:var(--navy)}.village small{display:block;color:#64748b;font-weight:600;font-size:9px;line-height:1.25}.foot{padding:8px 10px;text-align:center;background:var(--navy);color:#eaf3ff;font-size:10px;font-weight:600;letter-spacing:.3px}
+/* Laptop/desktop: seluruh komponen Countdown muat dalam satu viewport. */
+@media (min-width:701px) and (max-height:850px){body{padding:6px}.shell{border-radius:14px}.topline{height:5px}.hero{padding:8px 20px 7px}.brand img{width:62px;height:62px}.eyebrow{font-size:9px}h1{font-size:clamp(26px,3vw,36px)}.subtitle{font-size:14px}.slogan{margin-top:5px;font-size:13px}.slogan span{padding:5px 12px}.tagline{margin-top:3px;font-size:9px}.count-area{padding:8px 20px 9px}.count-area h2{font-size:20px}.count-area>p{font-size:11px;margin-bottom:7px}.count-grid{gap:9px}.count-box{padding:6px 7px}.count-box strong{font-size:38px}.count-box span{font-size:9px}.date-info{margin-top:5px}.date-info strong{font-size:14px}.date-info span{font-size:10px}.villages{padding:7px 18px 8px}.section-title{font-size:11px;margin-bottom:5px}.village{padding:4px 8px}.village img{width:38px;height:38px}.village strong{font-size:11px}.village small{font-size:8px}.foot{padding:6px;font-size:9px}}
+@media(max-width:700px){body{padding:8px;align-items:flex-start}.hero{padding:16px 12px}.brand{gap:9px}.brand img{width:66px;height:66px}.brand-copy{text-align:left}.eyebrow{font-size:8px;letter-spacing:.8px}h1{font-size:clamp(23px,7vw,34px)}.subtitle{font-size:11px}.slogan{margin-top:8px;font-size:12px}.slogan span{margin:3px;padding:5px 9px;font-size:11px}.tagline{font-size:9px}.count-area{padding:15px 10px}.count-area h2{font-size:20px}.count-grid{grid-template-columns:repeat(2,1fr);gap:8px}.count-box{padding:10px 6px}.count-box strong{font-size:38px}.date-info strong{font-size:14px}.villages{padding:14px 10px}.logos{grid-template-columns:1fr;gap:7px}.village{justify-content:flex-start}.village img{width:44px;height:44px}.foot{font-size:9px}}
+@media(max-width:380px){.brand img{width:54px;height:54px}.eyebrow{font-size:7px}h1{font-size:22px}.subtitle{font-size:10px}.slogan span{padding:5px 7px;font-size:10px}}
+</style>
+</head>
+<body>
+<main class="shell">
+<div class="topline"></div>
+<header class="hero">
+  <div class="brand">
+    <img src="assets/images/logo-sipitung.png" alt="Logo SIPITUNG 2026">
+    <div class="brand-copy"><div class="eyebrow">SISTEM INFORMASI PENGHITUNGAN SUARA TERINTEGRASI</div><h1>PILKADES 2026</h1><div class="subtitle">MOMENTUM KEMANDIRIAN DESA</div></div>
+  </div>
+  <div class="slogan"><span class="blue">JUJUR</span> → <span class="green">DIPERCAYA</span> → <span class="orange">MANDIRI</span></div>
+  <div class="tagline">TRANSPARANSI HARGA MATI, KEJUJURAN HARGA DIRI<br>Tumbuh kepercayaan, dari kepercayaan tumbuh kemandirian.</div>
+</header>
+<section class="count-area" aria-label="Hitung mundur Pilkades">
+  <h2>HITUNG MUNDUR</h2><p>Menuju Hari H dan Jam D Pemungutan Suara</p>
+  <div class="count-grid">
+    <div class="count-box"><strong id="days">000</strong><span>Hari</span></div>
+    <div class="count-box"><strong id="hours">00</strong><span>Jam</span></div>
+    <div class="count-box"><strong id="minutes">00</strong><span>Menit</span></div>
+    <div class="count-box"><strong id="seconds">00</strong><span>Detik</span></div>
+  </div>
+  <div class="date-info"><strong>Senin Wage, 23 November 2026</strong><span>Pukul 07.00 WIB</span></div>
+</section>
+<section class="villages">
+  <div class="section-title">DESA PENYELENGGARA PILKADES</div>
+  <div class="logos">
+    <div class="village"><img src="assets/images/desa-banjarsari.jpeg" alt="Logo Desa Banjarsari"><div><strong>BANJARSARI</strong><small>Saatnya Transparansi Menjadi Panglima.</small></div></div>
+    <div class="village"><img src="assets/images/desa-sidomulyo.jpeg" alt="Logo Desa Sidomulyo"><div><strong>SIDOMULYO</strong><small>Saatnya Rakyat Tahu, Bukan Sekadar Memilih.</small></div></div>
+    <div class="village"><img src="assets/images/desa-sumberagung.jpeg" alt="Logo Desa Sumberagung"><div><strong>SUMBERAGUNG</strong><small>Saatnya Demokrasi Tak Berhenti di Bilik Suara.</small></div></div>
+  </div>
+</section>
+<footer class="foot">SIPITUNG 2026 • PILKADES KECAMATAN SELOREJO</footer>
+</main>
+<script>
+(()=>{
+  const target=new Date('2026-11-23T07:00:00+07:00').getTime();
+  const ids=['days','hours','minutes','seconds'];
+  function tick(){
+    const distance=Math.max(0,target-Date.now());
+    const values=[Math.floor(distance/86400000),Math.floor(distance%86400000/3600000),Math.floor(distance%3600000/60000),Math.floor(distance%60000/1000)];
+    ids.forEach((id,i)=>document.getElementById(id).textContent=String(values[i]).padStart(i===0?3:2,'0'));
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
