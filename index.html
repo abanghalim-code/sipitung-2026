@@ -27,8 +27,39 @@ body{min-height:100vh;background:radial-gradient(circle at 15% 10%,#dceeff 0,tra
   .count-grid{width:min(78%,960px)}
   .logos{width:min(88%,1120px)}
 }
-/* Laptop/desktop: seluruh komponen Countdown muat dalam satu viewport. */
-@media (min-width:701px) and (max-height:850px){body{padding:6px}.shell{border-radius:14px}.topline{height:5px}.hero{padding:8px 20px 7px}.brand img{width:62px;height:62px}.eyebrow{font-size:9px}h1{font-size:clamp(26px,3vw,36px)}.subtitle{font-size:14px}.slogan{margin-top:5px;font-size:13px}.slogan span{padding:5px 12px}.tagline{margin-top:3px;font-size:9px}.count-area{padding:8px 20px 9px}.count-area h2{font-size:20px}.count-area>p{font-size:11px;margin-bottom:7px}.count-grid{gap:9px}.count-box{padding:6px 7px}.count-box strong{font-size:38px}.count-box span{font-size:9px}.date-info{margin-top:5px}.date-info strong{font-size:14px}.date-info span{font-size:10px}.villages{padding:7px 18px 8px}.section-title{font-size:11px;margin-bottom:5px}.village{padding:4px 8px}.village img{width:38px;height:38px}.village strong{font-size:11px}.village small{font-size:8px}.foot{padding:6px;font-size:9px}}
+/* Laptop/desktop: versi diperbesar sekitar 25%, tetap satu layar pada viewport desktop. */
+@media (min-width:701px) and (max-height:900px){
+  body{padding:6px}
+  .shell{border-radius:16px}
+  .topline{height:6px}
+  .hero{padding:10px 25px 9px}
+  .brand{gap:17px}
+  .brand img{width:78px;height:78px}
+  .eyebrow{font-size:11px;letter-spacing:1.6px}
+  h1{font-size:clamp(32px,3.75vw,45px)}
+  .subtitle{font-size:17px}
+  .slogan{margin-top:6px;font-size:16px}
+  .slogan span{padding:6px 15px;margin:0 5px}
+  .tagline{margin-top:4px;font-size:11px;line-height:1.5}
+  .count-area{padding:10px 25px 11px}
+  .count-area h2{font-size:25px}
+  .count-area>p{font-size:14px;margin:3px 0 9px}
+  .count-grid{width:min(84%,1200px);gap:11px}
+  .count-box{padding:8px 9px 9px;border-radius:15px}
+  .count-box strong{font-size:48px}
+  .count-box span{font-size:11px;margin-top:4px}
+  .date-info{margin-top:7px}
+  .date-info strong{font-size:18px}
+  .date-info span{font-size:12px;margin-top:2px}
+  .villages{padding:9px 22px 10px}
+  .section-title{font-size:13px;margin-bottom:7px}
+  .logos{width:min(92%,1400px);gap:14px}
+  .village{padding:5px 10px;gap:11px;border-radius:12px}
+  .village img{width:48px;height:48px}
+  .village strong{font-size:13px}
+  .village small{font-size:10px;line-height:1.3}
+  .foot{padding:8px 10px;font-size:11px}
+}
 @media(max-width:700px){body{padding:8px;align-items:flex-start}.hero{padding:16px 12px}.brand{gap:9px}.brand img{width:66px;height:66px}.brand-copy{text-align:left}.eyebrow{font-size:8px;letter-spacing:.8px}h1{font-size:clamp(23px,7vw,34px)}.subtitle{font-size:11px}.slogan{margin-top:8px;font-size:12px}.slogan span{margin:3px;padding:5px 9px;font-size:11px}.tagline{font-size:9px}.count-area{padding:15px 10px}.count-area h2{font-size:20px}.count-grid{grid-template-columns:repeat(2,1fr);gap:8px}.count-box{padding:10px 6px}.count-box strong{font-size:38px}.date-info strong{font-size:14px}.villages{padding:14px 10px}.logos{grid-template-columns:1fr;gap:7px}.village{justify-content:flex-start}.village img{width:44px;height:44px}.foot{font-size:9px}}
 @media(max-width:380px){.brand img{width:54px;height:54px}.eyebrow{font-size:7px}h1{font-size:22px}.subtitle{font-size:10px}.slogan span{padding:5px 7px;font-size:10px}}
 </style>
