@@ -13,11 +13,18 @@ h1{font-size:clamp(27px,3vw,40px);margin:4px 0;color:#082d68;font-weight:900}.su
 .nav{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:14px}.nav a{padding:9px 15px;border-radius:9px;text-decoration:none;color:#fff;background:#0875d1;font-size:12px;font-weight:800}.nav a:nth-child(2){background:#12a66a}.nav a:nth-child(3){background:#f59e0b}
 .status{margin:14px auto 0;max-width:900px;padding:10px 14px;border-radius:10px;background:#eef6ff;color:#164477;font-size:12px;font-weight:700}
 .grid{padding:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.card{border:1px solid #d7e3f1;border-radius:14px;overflow:hidden;background:#fff}
+.card{border:1px solid #d7e3f1;border-radius:14px;overflow:hidden;background:#fff;min-width:0}
 .card-head{padding:13px 15px;background:#082d68;color:#fff}.card-head h2{margin:0;font-size:20px}.card-head small{opacity:.85;font-size:10px;font-weight:700}
-.candidate{display:flex;align-items:center;gap:12px;padding:14px;border-bottom:1px solid #edf2f7}
-.rank{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:10px;background:#e8f2ff;color:#0875d1;font-size:17px;font-weight:900}
-.name{font-weight:800;font-size:14px}.votes{margin-left:auto;text-align:right;font-weight:900;color:#082d68;white-space:nowrap}.votes small{display:block;color:#64748b;font-size:10px;font-weight:600}
+.candidate{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #edf2f7}
+.rank{width:36px;height:36px;flex:none;display:grid;place-items:center;border-radius:10px;background:#e8f2ff;color:#0875d1;font-size:16px;font-weight:900}
+.name{font-weight:800;font-size:13px;min-width:0}.votes{margin-left:auto;text-align:right;font-weight:900;color:#082d68;white-space:nowrap}.votes small{display:block;color:#64748b;font-size:10px;font-weight:600}
+.chart{padding:13px 14px 15px;background:#fbfdff;border-bottom:1px solid #edf2f7}
+.chart-title{font-size:10px;font-weight:900;letter-spacing:.55px;color:#49647f;margin-bottom:12px}
+.bar-row{display:grid;grid-template-columns:minmax(75px,34%) minmax(40px,1fr) 42px;gap:8px;align-items:center;margin:10px 0}
+.bar-name{font-size:9px;font-weight:800;color:#29486d;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-track{height:12px;background:#e8eef6;border-radius:20px;overflow:hidden}
+.bar-fill{height:100%;border-radius:20px;transition:width .35s ease}
+.bar-pct{text-align:right;font-size:9px;font-weight:900;color:#29486d}
 .winner{margin:13px;padding:13px;border-radius:12px;background:linear-gradient(135deg,#fff7df,#fff);border:1px solid #f2d38a}
 .winner b{display:block;color:#996400;font-size:10px;letter-spacing:.6px}.winner strong{display:block;margin-top:4px;font-size:16px;color:#082d68}.winner span{font-size:11px;color:#64748b}
 .empty{padding:18px;text-align:center;color:#64748b;font-size:13px}
@@ -38,6 +45,8 @@ h1{font-size:clamp(27px,3vw,40px);margin:4px 0;color:#082d68;font-weight:900}.su
  const status=document.getElementById('status'),root=document.getElementById('results');
  const fmt=n=>Number(n||0).toLocaleString('id-ID');
  const norm=s=>String(s??'').trim().toUpperCase();
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const colors={1:'#0875d1',2:'#12a66a',3:'#f59e0b'};
  async function sheet(name){
    const url=`https://docs.google.com/spreadsheets/d/${ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(name)}`;
    const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);
@@ -51,22 +60,29 @@ h1{font-size:clamp(27px,3vw,40px);margin:4px 0;color:#082d68;font-weight:900}.su
      if(d&&n&&name)(map[d]||={})[n]=name;
    });return map;
  }
- function render(d, names){
-   const vals=[1,2,3].map(i=>Number(d['calon_'+i]||0));
+ function render(d,names){
+   const vals=[1,2,3].map(i=>Math.max(0,Number(d['calon_'+i]||0)));
    const total=vals.reduce((a,b)=>a+b,0);
-   const candidates=vals.map((v,i)=>({no:i+1,name:names[norm(d.desa)]?.[i+1]||`CALON ${i+1}`,votes:v,pct:total?v/total*100:0})).sort((a,b)=>b.votes-a.votes);
+   const candidates=vals.map((v,i)=>({no:i+1,name:names[norm(d.desa)]?.[i+1]||`CALON ${i+1}`,votes:v,pct:total?v/total*100:0}));
    const active=candidates.filter(x=>x.votes>0);
    const leader=active.length?active[0]:null;
    const tied=leader&&active.filter(x=>x.votes===leader.votes).length>1;
-   const rows=candidates.map(c=>`<div class="candidate"><div class="rank">${c.no}</div><div class="name">${c.name}</div><div class="votes">${fmt(c.votes)}<small>${c.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})}%</small></div></div>`).join('');
-   let winner=`<div class="winner"><b>${leader?(tied?'PERINGKAT TERATAS SEMENTARA — IMBANG':'PERAIH SUARA TERBANYAK SEMENTARA'):'BELUM ADA SUARA MASUK'}</b><strong>${leader?(tied?active.filter(x=>x.votes===leader.votes).map(x=>x.name).join(' & '):leader.name):'Menunggu hasil TPS'}</strong><span>${leader?fmt(leader.votes)+' suara • '+(leader.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})+'%'):'Belum dapat ditentukan'}</span></div>`;
-   return `<article class="card"><header class="card-head"><h2>${d.desa}</h2><small>DPT ${fmt(d.dpt_total)} • Suara masuk ${fmt(d.suara_masuk_total)}</small></header>${rows}${winner}</article>`;
+   const rows=candidates.map(c=>`<div class="candidate"><div class="rank">${c.no}</div><div class="name">${esc(c.name)}</div><div class="votes">${fmt(c.votes)}<small>${c.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})}%</small></div></div>`).join('');
+   const maxVotes=Math.max(...vals,0);
+   const bars=candidates.map(c=>`<div class="bar-row">
+     <div class="bar-name" title="${esc(c.name)}">${esc(c.name)}</div>
+     <div class="bar-track"><div class="bar-fill" style="width:${maxVotes?c.votes/maxVotes*100:0}%;background:${colors[c.no]}"></div></div>
+     <div class="bar-pct">${c.pct.toLocaleString('id-ID',{maximumFractionDigits:1})}%</div>
+   </div>`).join('');
+   const chart=`<div class="chart"><div class="chart-title">GRAFIK PERBANDINGAN PEROLEHAN SUARA</div>${bars}</div>`;
+   const winner=`<div class="winner"><b>${leader?(tied?'PERINGKAT TERATAS SEMENTARA — IMBANG':'PERAIH SUARA TERBANYAK SEMENTARA'):'BELUM ADA SUARA MASUK'}</b><strong>${leader?(tied?active.filter(x=>x.votes===leader.votes).map(x=>esc(x.name)).join(' &amp; '):esc(leader.name)):'Menunggu hasil TPS'}</strong><span>${leader?fmt(leader.votes)+' suara • '+leader.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})+'%':'Belum dapat ditentukan'}</span></div>`;
+   return `<article class="card"><header class="card-head"><h2>${esc(d.desa)}</h2><small>DPT ${fmt(d.dpt_total)} • Suara masuk ${fmt(d.suara_masuk_total)}</small></header>${rows}${chart}${winner}</article>`;
  }
  async function load(){
    try{
      const [desaRows,calonRows]=await Promise.all([sheet('dashboard_desa'),sheet('calon')]);
      const names=candidateMap(calonRows),map=Object.fromEntries(desaRows.map(d=>[norm(d.desa),d]));
-     root.innerHTML=ORDER.map(d=>map[d]?render(map[d],names):`<article class="card"><div class="empty">${d}: data belum tersedia</div></article>`).join('');
+     root.innerHTML=ORDER.map(d=>map[d]?render(map[d],names):`<article class="card"><div class="empty">${esc(d)}: data belum tersedia</div></article>`).join('');
      status.textContent='● Data tersambung • diperbarui otomatis setiap 60 detik • angka menunjukkan rekap sementara';
    }catch(e){console.error(e);status.textContent='Gagal membaca Google Sheets. Periksa akses publik spreadsheet.';root.innerHTML='<div class="empty">Data belum dapat dimuat. Dashboard Quick Count tetap dapat dibuka dari menu di atas.</div>';}
  }
