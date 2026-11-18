@@ -22,6 +22,9 @@ body{padding:8px}
 .sub{font-size:18px;color:#a51f2b;font-weight:900;line-height:1.08;margin-top:6px;letter-spacing:.15px;white-space:nowrap}
 .slogan{font-size:13px;color:#102c55;font-weight:800;line-height:1.25;margin-top:4px;max-width:850px}.slogan strong{font-size:14px}.slogan span{font-size:13px}
 .status{font-size:9px;color:#159447;font-weight:700;margin-top:3px}
+.prev-btn{display:inline-flex;align-items:center;gap:5px;margin-top:6px;padding:4px 9px;border:1px solid #b7cce5;border-radius:6px;background:#eef5ff;color:#0758b8;font:800 9px Arial,sans-serif;letter-spacing:.25px;cursor:pointer;transition:background .15s,border-color .15s}
+.prev-btn:hover{background:#dcecff;border-color:#75a9df}
+.prev-btn:focus-visible{outline:2px solid #0875d1;outline-offset:2px}
 .err{color:#d71920}
 .headline-core{min-width:0;padding:0 8px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
 .flow-row{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;white-space:nowrap}
@@ -202,6 +205,7 @@ body{background:#e8f1fc;color:#071f4b}
       <div class="title">SIPITUNG 2026</div>
       <div class="sub">QUICK COUNT PILKADES</div>
       <div id="status" class="status">● Menghubungkan ke Google Sheets…</div>
+      <button class="prev-btn" type="button" onclick="goPrevious()" aria-label="Kembali ke halaman sebelumnya">← PREVIOUS</button>
     </div>
   </div>
   <div class="headline-core">
@@ -558,6 +562,14 @@ function c(n,v){
     <div class="cn">CALON ${n}</div>
     <div class="cv">${f(v)}</div>
   </div>`;
+}
+
+function goPrevious(){
+  if(window.history.length > 1){
+    window.history.back();
+  }else{
+    window.location.href='index.html';
+  }
 }
 
 function clock(){
