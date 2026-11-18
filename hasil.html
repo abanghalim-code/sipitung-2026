@@ -1,38 +1,43 @@
 <!doctype html>
 <html lang="id">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#082d68">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#082d68">
 <title>Hasil &amp; Peraih Suara Terbanyak | SIPITUNG 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{margin:0;padding:18px;background:linear-gradient(140deg,#eaf3ff,#f8fbff);font-family:Poppins,Arial,sans-serif;color:#102c55}
-.wrap{max-width:1450px;margin:auto}.panel{background:#fff;border:1px solid #d3e1f1;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px #082d6818}
-.top{height:6px;background:linear-gradient(90deg,#0875d1 0 34%,#12a66a 34% 67%,#f59e0b 67%)}
-.head{text-align:center;padding:22px 16px;background:linear-gradient(135deg,#fff,#f0f6ff)}
-.kicker{font-size:11px;letter-spacing:1.4px;font-weight:900;color:#0875d1}
-h1{font-size:clamp(27px,3vw,40px);margin:4px 0;color:#082d68;font-weight:900}.sub{font-size:13px;color:#64748b}
-.nav{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:14px}.nav a{padding:9px 15px;border-radius:9px;text-decoration:none;color:#fff;background:#0875d1;font-size:12px;font-weight:800}.nav a:nth-child(2){background:#12a66a}.nav a:nth-child(3){background:#f59e0b}
-.status{margin:14px auto 0;max-width:900px;padding:10px 14px;border-radius:10px;background:#eef6ff;color:#164477;font-size:12px;font-weight:700}
-.grid{padding:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.card{border:1px solid #d7e3f1;border-radius:14px;overflow:hidden;background:#fff;min-width:0}
-.card-head{padding:13px 15px;background:#082d68;color:#fff}.card-head h2{margin:0;font-size:20px}.card-head small{opacity:.85;font-size:10px;font-weight:700}
-.candidate{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #edf2f7}
-.rank{width:36px;height:36px;flex:none;display:grid;place-items:center;border-radius:10px;background:#e8f2ff;color:#0875d1;font-size:16px;font-weight:900}
-.name{font-weight:800;font-size:13px;min-width:0}.votes{margin-left:auto;text-align:right;font-weight:900;color:#082d68;white-space:nowrap}.votes small{display:block;color:#64748b;font-size:10px;font-weight:600}
-.chart{padding:13px 14px 15px;background:#fbfdff;border-bottom:1px solid #edf2f7}
-.chart-title{font-size:10px;font-weight:900;letter-spacing:.55px;color:#49647f;margin-bottom:12px}
-.bar-row{display:grid;grid-template-columns:minmax(75px,34%) minmax(40px,1fr) 42px;gap:8px;align-items:center;margin:10px 0}
-.bar-name{font-size:9px;font-weight:800;color:#29486d;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.bar-track{height:12px;background:#e8eef6;border-radius:20px;overflow:hidden}
-.bar-fill{height:100%;border-radius:20px;transition:width .35s ease}
-.bar-pct{text-align:right;font-size:9px;font-weight:900;color:#29486d}
-.winner{margin:13px;padding:13px;border-radius:12px;background:linear-gradient(135deg,#fff7df,#fff);border:1px solid #f2d38a}
-.winner b{display:block;color:#996400;font-size:10px;letter-spacing:.6px}.winner strong{display:block;margin-top:4px;font-size:16px;color:#082d68}.winner span{font-size:11px;color:#64748b}
-.empty{padding:18px;text-align:center;color:#64748b;font-size:13px}
-.foot{text-align:center;background:#082d68;color:#fff;padding:12px;font-size:11px;font-weight:700}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){body{padding:8px}.grid{grid-template-columns:1fr;padding:12px}}
-</style></head>
-<body><main class="wrap"><div class="panel"><div class="top"></div>
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0}
+body{padding:12px;background:linear-gradient(140deg,#eaf3ff,#f8fbff);font-family:Poppins,Arial,sans-serif;color:#102c55;overflow:hidden}
+.wrap{width:100%;max-width:1600px;height:100%;margin:auto}
+.panel{height:100%;display:flex;flex-direction:column;background:#fff;border:1px solid #d3e1f1;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px #082d6818}
+.top{height:6px;flex:none;background:linear-gradient(90deg,#0875d1 0 34%,#12a66a 34% 67%,#f59e0b 67%)}
+.head{flex:none;text-align:center;padding:13px 16px 12px;background:linear-gradient(135deg,#fff,#f0f6ff)}
+.kicker{font-size:10px;letter-spacing:1.3px;font-weight:900;color:#0875d1}
+h1{font-size:clamp(23px,2.7vw,36px);line-height:1.15;margin:3px 0;color:#082d68;font-weight:900}.sub{font-size:11px;color:#64748b}
+.nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:10px}.nav a{padding:7px 13px;border-radius:9px;text-decoration:none;color:#fff;background:#0875d1;font-size:10px;font-weight:800}.nav a:nth-child(2){background:#12a66a}.nav a:nth-child(3){background:#f59e0b}
+.status{margin:9px auto 0;max-width:900px;padding:7px 12px;border-radius:9px;background:#eef6ff;color:#164477;font-size:10px;font-weight:700}
+.grid{flex:1;min-height:0;padding:12px 16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{min-height:0;display:flex;flex-direction:column;border:1px solid #d7e3f1;border-radius:13px;overflow:hidden;background:#fff}
+.card-head{flex:none;padding:10px 13px;background:#082d68;color:#fff}.card-head h2{margin:0;font-size:clamp(16px,1.5vw,20px);line-height:1.25}.card-head small{opacity:.88;font-size:9px;font-weight:700}
+.candidate{flex:none;min-height:48px;display:flex;align-items:center;gap:10px;padding:6px 12px;border-bottom:1px solid #edf2f7}
+.rank{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:9px;background:#e8f2ff;color:#0875d1;font-size:14px;font-weight:900}
+.name{font-weight:800;font-size:clamp(10px,.9vw,12px);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.votes{margin-left:auto;text-align:right;font-size:14px;font-weight:900;color:#082d68;white-space:nowrap}.votes small{display:block;color:#64748b;font-size:9px;font-weight:600}
+.chart{flex:1;min-height:145px;padding:9px 12px;background:#fbfdff;border-bottom:1px solid #edf2f7;display:flex;flex-direction:column}
+.chart-title{flex:none;font-size:9px;font-weight:900;letter-spacing:.45px;color:#49647f;text-align:center;margin-bottom:4px}
+.donut-area{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,24px)}
+.donut{width:clamp(104px,10vw,142px);height:clamp(104px,10vw,142px);flex:none;overflow:visible}
+.donut-hole{fill:#fff}.donut-total{font-size:11px;font-weight:900;fill:#082d68;text-anchor:middle}.donut-caption{font-size:6px;font-weight:700;fill:#64748b;text-anchor:middle;letter-spacing:.5px}
+.legend{min-width:0;display:flex;flex-direction:column;gap:9px;max-width:55%}.legend-row{display:grid;grid-template-columns:9px minmax(0,1fr) auto;align-items:center;gap:6px;font-size:9px;font-weight:800;color:#29486d}.legend-dot{width:8px;height:8px;border-radius:50%}.legend-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.legend-pct{font-weight:900;color:#082d68}
+.winner{flex:none;margin:9px;padding:9px 11px;border-radius:10px;background:linear-gradient(135deg,#fff7df,#fff);border:1px solid #f2d38a;min-height:58px}
+.winner b{display:block;color:#996400;font-size:9px;letter-spacing:.45px}.winner strong{display:block;margin-top:3px;font-size:clamp(11px,1vw,14px);line-height:1.25;color:#082d68;overflow:hidden;text-overflow:ellipsis}.winner span{font-size:9px;color:#64748b}
+.empty{padding:18px;text-align:center;color:#64748b;font-size:12px}
+.foot{flex:none;text-align:center;background:#082d68;color:#fff;padding:7px;font-size:9px;font-weight:700}
+@media(max-height:700px) and (min-width:701px){body{padding:7px}.head{padding:7px 12px}.kicker{font-size:9px}h1{font-size:24px}.sub{font-size:10px}.nav{margin-top:6px}.nav a{padding:5px 10px}.status{margin-top:6px;padding:5px}.grid{padding:7px 10px;gap:8px}.card-head{padding:7px 10px}.candidate{min-height:39px;padding:4px 9px}.rank{width:26px;height:26px}.chart{min-height:118px;padding:6px 9px}.donut{width:95px;height:95px}.legend{gap:6px}.winner{margin:6px;padding:6px 8px;min-height:48px}.foot{padding:5px}}
+@media(max-width:700px){body{height:auto;min-height:100%;overflow:auto;padding:8px}.wrap{height:auto}.panel{height:auto;min-height:calc(100vh - 16px)}.head{padding:13px 10px}.grid{flex:none;grid-template-columns:1fr;padding:10px;gap:10px}.card{min-height:360px}.card-head h2{font-size:18px}.chart{min-height:150px}.donut{width:118px;height:118px}.foot{position:static}}
+</style>
+</head>
+<body>
+<main class="wrap"><div class="panel"><div class="top"></div>
 <header class="head"><div class="kicker">SIPITUNG 2026 • PILKADES KECAMATAN SELOREJO</div><h1>HASIL PEROLEHAN SUARA &amp; PEMENANG</h1><div class="sub">Pembaruan otomatis dari Google Sheets • Data sementara berdasarkan suara yang masuk</div>
 <nav class="nav"><a href="index.html">01 • COUNTDOWN</a><a href="calon.html">02 • FOTO CALON</a><a href="dashboard.html">03 • SIPITUNG QUICK COUNT</a></nav>
 <div class="status" id="status">Menghubungkan ke Google Sheets...</div></header>
@@ -60,6 +65,15 @@ h1{font-size:clamp(27px,3vw,40px);margin:4px 0;color:#082d68;font-weight:900}.su
      if(d&&n&&name)(map[d]||={})[n]=name;
    });return map;
  }
+ function donutSvg(candidates,total){
+   const radius=43,circ=2*Math.PI*radius;let offset=0;
+   const segments=candidates.map(c=>{
+     const length=total?(c.votes/total)*circ:0;
+     const part=`<circle cx="60" cy="60" r="${radius}" fill="none" stroke="${colors[c.no]}" stroke-width="13" stroke-dasharray="${length} ${circ-length}" stroke-dashoffset="${-offset}" transform="rotate(-90 60 60)"/>`;
+     offset+=length;return part;
+   }).join('');
+   return `<svg class="donut" viewBox="0 0 120 120" role="img" aria-label="Grafik donat perbandingan suara">${total?segments:`<circle cx="60" cy="60" r="${radius}" fill="none" stroke="#e8eef6" stroke-width="13"/>`}<circle class="donut-hole" cx="60" cy="60" r="32"/><text class="donut-total" x="60" y="57">${fmt(total)}</text><text class="donut-caption" x="60" y="68">SUARA MASUK</text></svg>`;
+ }
  function render(d,names){
    const vals=[1,2,3].map(i=>Math.max(0,Number(d['calon_'+i]||0)));
    const total=vals.reduce((a,b)=>a+b,0);
@@ -67,14 +81,9 @@ h1{font-size:clamp(27px,3vw,40px);margin:4px 0;color:#082d68;font-weight:900}.su
    const active=candidates.filter(x=>x.votes>0);
    const leader=active.length?active[0]:null;
    const tied=leader&&active.filter(x=>x.votes===leader.votes).length>1;
-   const rows=candidates.map(c=>`<div class="candidate"><div class="rank">${c.no}</div><div class="name">${esc(c.name)}</div><div class="votes">${fmt(c.votes)}<small>${c.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})}%</small></div></div>`).join('');
-   const maxVotes=Math.max(...vals,0);
-   const bars=candidates.map(c=>`<div class="bar-row">
-     <div class="bar-name" title="${esc(c.name)}">${esc(c.name)}</div>
-     <div class="bar-track"><div class="bar-fill" style="width:${maxVotes?c.votes/maxVotes*100:0}%;background:${colors[c.no]}"></div></div>
-     <div class="bar-pct">${c.pct.toLocaleString('id-ID',{maximumFractionDigits:1})}%</div>
-   </div>`).join('');
-   const chart=`<div class="chart"><div class="chart-title">GRAFIK PERBANDINGAN PEROLEHAN SUARA</div>${bars}</div>`;
+   const rows=candidates.map(c=>`<div class="candidate"><div class="rank">${c.no}</div><div class="name" title="${esc(c.name)}">${esc(c.name)}</div><div class="votes">${fmt(c.votes)}<small>${c.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})}%</small></div></div>`).join('');
+   const legend=candidates.map(c=>`<div class="legend-row"><i class="legend-dot" style="background:${colors[c.no]}"></i><span class="legend-name" title="${esc(c.name)}">${esc(c.name)}</span><span class="legend-pct">${c.pct.toLocaleString('id-ID',{maximumFractionDigits:1})}%</span></div>`).join('');
+   const chart=`<div class="chart"><div class="chart-title">GRAFIK PERBANDINGAN PEROLEHAN SUARA</div><div class="donut-area">${donutSvg(candidates,total)}<div class="legend">${legend}</div></div></div>`;
    const winner=`<div class="winner"><b>${leader?(tied?'PERINGKAT TERATAS SEMENTARA — IMBANG':'PERAIH SUARA TERBANYAK SEMENTARA'):'BELUM ADA SUARA MASUK'}</b><strong>${leader?(tied?active.filter(x=>x.votes===leader.votes).map(x=>esc(x.name)).join(' &amp; '):esc(leader.name)):'Menunggu hasil TPS'}</strong><span>${leader?fmt(leader.votes)+' suara • '+leader.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})+'%':'Belum dapat ditentukan'}</span></div>`;
    return `<article class="card"><header class="card-head"><h2>${esc(d.desa)}</h2><small>DPT ${fmt(d.dpt_total)} • Suara masuk ${fmt(d.suara_masuk_total)}</small></header>${rows}${chart}${winner}</article>`;
  }
