@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#082d68">
+<title>Hasil &amp; Peraih Suara Terbanyak | SIPITUNG 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;padding:18px;background:linear-gradient(140deg,#eaf3ff,#f8fbff);font-family:Poppins,Arial,sans-serif;color:#102c55}
+.wrap{max-width:1450px;margin:auto}.panel{background:#fff;border:1px solid #d3e1f1;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px #082d6818}
+.top{height:6px;background:linear-gradient(90deg,#0875d1 0 34%,#12a66a 34% 67%,#f59e0b 67%)}
+.head{text-align:center;padding:22px 16px;background:linear-gradient(135deg,#fff,#f0f6ff)}
+.kicker{font-size:11px;letter-spacing:1.4px;font-weight:900;color:#0875d1}
+h1{font-size:clamp(27px,3vw,40px);margin:4px 0;color:#082d68;font-weight:900}.sub{font-size:13px;color:#64748b}
+.nav{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:14px}.nav a{padding:9px 15px;border-radius:9px;text-decoration:none;color:#fff;background:#0875d1;font-size:12px;font-weight:800}.nav a:nth-child(2){background:#12a66a}.nav a:nth-child(3){background:#f59e0b}
+.status{margin:14px auto 0;max-width:900px;padding:10px 14px;border-radius:10px;background:#eef6ff;color:#164477;font-size:12px;font-weight:700}
+.grid{padding:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{border:1px solid #d7e3f1;border-radius:14px;overflow:hidden;background:#fff}
+.card-head{padding:13px 15px;background:#082d68;color:#fff}.card-head h2{margin:0;font-size:20px}.card-head small{opacity:.85;font-size:10px;font-weight:700}
+.candidate{display:flex;align-items:center;gap:12px;padding:14px;border-bottom:1px solid #edf2f7}
+.rank{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:10px;background:#e8f2ff;color:#0875d1;font-size:17px;font-weight:900}
+.name{font-weight:800;font-size:14px}.votes{margin-left:auto;text-align:right;font-weight:900;color:#082d68;white-space:nowrap}.votes small{display:block;color:#64748b;font-size:10px;font-weight:600}
+.winner{margin:13px;padding:13px;border-radius:12px;background:linear-gradient(135deg,#fff7df,#fff);border:1px solid #f2d38a}
+.winner b{display:block;color:#996400;font-size:10px;letter-spacing:.6px}.winner strong{display:block;margin-top:4px;font-size:16px;color:#082d68}.winner span{font-size:11px;color:#64748b}
+.empty{padding:18px;text-align:center;color:#64748b;font-size:13px}
+.foot{text-align:center;background:#082d68;color:#fff;padding:12px;font-size:11px;font-weight:700}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){body{padding:8px}.grid{grid-template-columns:1fr;padding:12px}}
+</style></head>
+<body><main class="wrap"><div class="panel"><div class="top"></div>
+<header class="head"><div class="kicker">SIPITUNG 2026 • PILKADES KECAMATAN SELOREJO</div><h1>HASIL PEROLEHAN SUARA &amp; PEMENANG</h1><div class="sub">Pembaruan otomatis dari Google Sheets • Data sementara berdasarkan suara yang masuk</div>
+<nav class="nav"><a href="index.html">01 • COUNTDOWN</a><a href="calon.html">02 • FOTO CALON</a><a href="dashboard.html">03 • SIPITUNG QUICK COUNT</a></nav>
+<div class="status" id="status">Menghubungkan ke Google Sheets...</div></header>
+<section class="grid" id="results"><div class="empty">Memuat rekapitulasi...</div></section>
+<footer class="foot">SIPITUNG 2026 • Data bersumber dari Google Sheets • Hasil resmi mengikuti penetapan panitia Pilkades</footer></div></main>
+<script>
+(()=>{
+ const ID='1GWDd6GWzpbfO6h0LsqWlhCDguDAggSjO5iic1eYslFc';
+ const ORDER=['BANJARSARI','SIDOMULYO','SUMBERAGUNG'];
+ const status=document.getElementById('status'),root=document.getElementById('results');
+ const fmt=n=>Number(n||0).toLocaleString('id-ID');
+ const norm=s=>String(s??'').trim().toUpperCase();
+ async function sheet(name){
+   const url=`https://docs.google.com/spreadsheets/d/${ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(name)}`;
+   const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);
+   const raw=await res.text();const json=JSON.parse(raw.slice(raw.indexOf('{'),raw.lastIndexOf('}')+1));
+   const cols=json.table.cols.map(c=>c.label);
+   return json.table.rows.map(r=>Object.fromEntries(cols.map((c,i)=>[c,r.c[i]?.v??''])));
+ }
+ function candidateMap(rows){
+   const map={};rows.forEach(r=>{
+     const d=norm(r.nama_desa||r.desa),n=Number(r.no_urut||r.no||r.urutan||0),name=String(r.nama_calon||r.calon||'').trim();
+     if(d&&n&&name)(map[d]||={})[n]=name;
+   });return map;
+ }
+ function render(d, names){
+   const vals=[1,2,3].map(i=>Number(d['calon_'+i]||0));
+   const total=vals.reduce((a,b)=>a+b,0);
+   const candidates=vals.map((v,i)=>({no:i+1,name:names[norm(d.desa)]?.[i+1]||`CALON ${i+1}`,votes:v,pct:total?v/total*100:0})).sort((a,b)=>b.votes-a.votes);
+   const active=candidates.filter(x=>x.votes>0);
+   const leader=active.length?active[0]:null;
+   const tied=leader&&active.filter(x=>x.votes===leader.votes).length>1;
+   const rows=candidates.map(c=>`<div class="candidate"><div class="rank">${c.no}</div><div class="name">${c.name}</div><div class="votes">${fmt(c.votes)}<small>${c.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})}%</small></div></div>`).join('');
+   let winner=`<div class="winner"><b>${leader?(tied?'PERINGKAT TERATAS SEMENTARA — IMBANG':'PERAIH SUARA TERBANYAK SEMENTARA'):'BELUM ADA SUARA MASUK'}</b><strong>${leader?(tied?active.filter(x=>x.votes===leader.votes).map(x=>x.name).join(' & '):leader.name):'Menunggu hasil TPS'}</strong><span>${leader?fmt(leader.votes)+' suara • '+(leader.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})+'%'):'Belum dapat ditentukan'}</span></div>`;
+   return `<article class="card"><header class="card-head"><h2>${d.desa}</h2><small>DPT ${fmt(d.dpt_total)} • Suara masuk ${fmt(d.suara_masuk_total)}</small></header>${rows}${winner}</article>`;
+ }
+ async function load(){
+   try{
+     const [desaRows,calonRows]=await Promise.all([sheet('dashboard_desa'),sheet('calon')]);
+     const names=candidateMap(calonRows),map=Object.fromEntries(desaRows.map(d=>[norm(d.desa),d]));
+     root.innerHTML=ORDER.map(d=>map[d]?render(map[d],names):`<article class="card"><div class="empty">${d}: data belum tersedia</div></article>`).join('');
+     status.textContent='● Data tersambung • diperbarui otomatis setiap 60 detik • angka menunjukkan rekap sementara';
+   }catch(e){console.error(e);status.textContent='Gagal membaca Google Sheets. Periksa akses publik spreadsheet.';root.innerHTML='<div class="empty">Data belum dapat dimuat. Dashboard Quick Count tetap dapat dibuka dari menu di atas.</div>';}
+ }
+ load();setInterval(load,60000);
+})();
+</script></body></html>

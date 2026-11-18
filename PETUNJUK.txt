@@ -1,0 +1,25 @@
+SIPITUNG 2026 — Paket navigasi 4 halaman
+
+File yang ditambahkan/diganti:
+- index.html : halaman 01 Countdown + navigasi.
+- calon.html : halaman 02 foto calon seluruh desa.
+- hasil.html : halaman 04 rekap peraih suara terbanyak sementara dari Google Sheets.
+- assets/js/bacalon.js : data master calon dari repository sumber.
+- assets/images/bacalon/* : foto resmi calon dari repository sumber.
+
+File yang TIDAK diganti:
+- dashboard.html : halaman 03 SIPITUNG Quick Count, pertahankan file yang sudah ada.
+- Apps Script, ID Spreadsheet, nama sheet, struktur kolom.
+
+Cara pasang:
+1. Ganti index.html dengan file pada paket.
+2. Tambahkan calon.html dan hasil.html ke root repository.
+3. Tambahkan assets/js/bacalon.js.
+4. Tambahkan seluruh file assets/images/bacalon/.
+5. Jangan timpa dashboard.html atau file konfigurasi Google Sheets.
+6. Commit, lalu uji index.html, calon.html, dashboard.html, hasil.html.
+
+Catatan:
+- Halaman hasil menampilkan peraih suara terbanyak sementara, bukan penetapan resmi.
+- Halaman calon memakai data master dan foto resmi yang tersedia pada repository sumber.
+- Navigasi halaman 03 mengarah ke dashboard.html yang sudah ada.
