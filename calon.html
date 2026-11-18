@@ -26,7 +26,7 @@ h1{margin:3px 0;color:#082d68;font-size:clamp(27px,3vw,40px);font-weight:900}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
 .card{border:1px solid #d7e3f1;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 5px 15px #082d6810}
 .photo{height:285px;background:#f2f6fb;display:flex;align-items:center;justify-content:center;position:relative}
-.photo img{height:100%;width:100%;object-fit:contain}
+.photo img{height:100%;width:100%;object-fit:contain}.photo-missing{background:linear-gradient(135deg,#edf4fc,#dce8f6)}.missing-label{font-weight:900;letter-spacing:1px;color:#66809e;font-size:15px;border:2px dashed #9bb2cc;border-radius:12px;padding:18px 24px}
 .no{position:absolute;left:12px;bottom:12px;background:#0875d1;color:#fff;border-radius:10px;padding:7px 13px;font-weight:900;font-size:17px;box-shadow:0 3px 9px #082d6830}
 .info{padding:13px 15px 15px}.info small{font-size:10px;color:#0875d1;font-weight:900;letter-spacing:.8px}
 .info h3{margin:3px 0;color:#102c55;font-size:17px}.info p{margin:0;color:#64748b;font-size:12px}
@@ -48,7 +48,7 @@ h1{margin:3px 0;color:#082d68;font-size:clamp(27px,3vw,40px);font-weight:900}
  root.innerHTML=villages.map((desa,idx)=>{
    const rows=getBacalonByDesa(desa);
    return `<section class="village"><div class="village-title"><h2>${esc(desa.toUpperCase())}</h2><span>${rows.length} CALON</span></div>
-   <div class="cards">${rows.map(c=>`<article class="card"><div class="photo"><img src="assets/images/bacalon/${esc(c.foto_resmi)}" alt="Foto ${esc(c.nama)}"><span class="no">NOMOR ${String(c.no_urut).padStart(2,'0')}</span></div><div class="info"><small>CALON KEPALA DESA • ${esc(c.desa.toUpperCase())}</small><h3>${esc(c.nama)}</h3><p>${esc(c.pekerjaan||'')}</p></div></article>`).join('')}</div></section>`;
+   <div class="cards">${rows.map(c=>`<article class="card"><div class="photo"><img src="assets/images/bacalon/${esc(c.foto_resmi)}" alt="Foto ${esc(c.nama)}" onerror="this.style.display='none';this.parentElement.classList.add('photo-missing');this.parentElement.insertAdjacentHTML('beforeend','<div class=\"missing-label\">FOTO BELUM TERSEDIA</div>')"><span class="no">NOMOR ${String(c.no_urut).padStart(2,'0')}</span></div><div class="info"><small>CALON KEPALA DESA • ${esc(c.desa.toUpperCase())}</small><h3>${esc(c.nama)}</h3><p>${esc(c.pekerjaan||'')}</p></div></article>`).join('')}</div></section>`;
  }).join('');
 })();
 </script></body></html>
