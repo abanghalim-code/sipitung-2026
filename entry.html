@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#082d68">
+<title>Formulir Petugas TPS | SIPITUNG 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#082d68;--blue:#0875d1;--green:#12a66a;--orange:#f59e0b;--ink:#102c55;--muted:#64748b;--line:#d8e4f1;--red:#b42332}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Poppins,Arial,sans-serif;color:var(--ink)}
+body{min-height:100vh;padding:18px;background:radial-gradient(circle at 12% 5%,#dceeff 0,transparent 32%),linear-gradient(145deg,#f5f9ff,#e8f2ff)}
+.shell{width:min(100%,1000px);margin:auto;background:#fff;border:1px solid #c9d9ed;border-radius:18px;overflow:hidden;box-shadow:0 16px 44px #082d6822}
+.topline{height:6px;background:linear-gradient(90deg,var(--blue) 0 34%,var(--green) 34% 67%,var(--orange) 67%)}
+header{padding:18px 22px 15px;text-align:center;background:linear-gradient(135deg,#fff,#f4f8ff)}
+.brand{display:flex;align-items:center;justify-content:center;gap:13px}.brand img{width:66px;height:66px;object-fit:contain}.eyebrow{font-size:9px;font-weight:900;letter-spacing:1.2px;color:var(--blue)}
+h1{margin:2px 0;color:var(--navy);font-size:clamp(22px,4vw,34px);line-height:1.12;font-weight:900}.subtitle{font-size:11px;font-weight:800;color:#a51f2b}
+.banner{margin:12px auto 0;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:8px;background:#eaf3ff;color:var(--navy);font-size:10px;font-weight:900}
+main{padding:18px;display:grid;gap:14px}.panel{border:1px solid var(--line);border-radius:13px;padding:15px;background:#fff;box-shadow:0 4px 14px #082d680a}
+.panel-title{margin:0 0 11px;color:var(--navy);font-size:13px;font-weight:900;letter-spacing:.3px}
+.identity{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.identity-item{padding:10px;border-radius:9px;background:#f5f9ff;border:1px solid #e1ebf6}.identity-item small{display:block;color:var(--muted);font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.6px}.identity-item strong{display:block;margin-top:3px;font-size:13px;color:var(--navy);overflow-wrap:anywhere}
+.dpt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:9px}.dpt-box{padding:10px;text-align:center;border-radius:9px;background:#f7fbff;border:1px solid #e1ebf6}.dpt-box strong{display:block;font-size:22px;line-height:1.1;color:var(--navy);font-variant-numeric:tabular-nums}.dpt-box span{font-size:9px;color:var(--muted);font-weight:800;text-transform:uppercase}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field label{display:block;margin-bottom:5px;font-size:10px;font-weight:800;color:#435c7a}.field input{width:100%;height:42px;padding:8px 11px;border:1px solid #cbd8e7;border-radius:8px;font:700 15px Poppins,Arial,sans-serif;color:var(--navy);outline:none}.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #0875d11a}.candidate-list{display:grid;gap:8px}.candidate-row{display:grid;grid-template-columns:48px minmax(0,1fr) 130px;align-items:center;gap:10px;padding:10px;border:1px solid #e1ebf6;border-radius:10px;background:#fbfdff}.number{display:grid;place-items:center;width:38px;height:38px;border-radius:9px;background:#eaf3ff;color:var(--blue);font-weight:900;font-size:13px}.candidate-name{font-size:12px;font-weight:900;color:var(--navy);overflow-wrap:anywhere}.candidate-id{font-size:9px;color:var(--muted);margin-top:2px}.candidate-row input{width:100%;height:40px;padding:7px 9px;border:1px solid #cbd8e7;border-radius:8px;text-align:center;font:800 15px Poppins,Arial,sans-serif;color:var(--navy)}
+.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.sum-box{padding:11px;border-radius:9px;background:#f5f9ff;border:1px solid #e1ebf6;text-align:center}.sum-box strong{display:block;color:var(--navy);font-size:21px;font-variant-numeric:tabular-nums}.sum-box span{font-size:9px;color:var(--muted);font-weight:800;text-transform:uppercase}
+.actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.hint{font-size:9px;line-height:1.5;color:var(--muted);max-width:560px}.btn{border:0;border-radius:9px;padding:12px 20px;background:var(--green);color:white;font:900 12px Poppins,Arial,sans-serif;cursor:pointer;box-shadow:0 5px 13px #12a66a30}.btn:disabled{opacity:.55;cursor:not-allowed}.status{display:none;padding:11px 13px;border-radius:9px;font-size:11px;font-weight:800;line-height:1.5}.status.show{display:block}.status.info{background:#edf5ff;color:#164b83;border:1px solid #cfe2f7}.status.ok{background:#eaf8f0;color:#12633d;border:1px solid #bce6cd}.status.err{background:#fff0f0;color:#9b1c28;border:1px solid #f2c5c8}.footer{text-align:center;padding:10px;background:var(--navy);color:#eaf3ff;font-size:9px;font-weight:700}
+.hidden{display:none!important}
+@media(max-width:650px){body{padding:8px}.shell{border-radius:13px}header{padding:14px 10px}.brand img{width:52px;height:52px}.eyebrow{font-size:7px;letter-spacing:.7px}main{padding:10px;gap:10px}.panel{padding:11px}.identity{grid-template-columns:1fr 1fr}.dpt{grid-template-columns:repeat(3,minmax(0,1fr))}.dpt-box strong{font-size:18px}.candidate-row{grid-template-columns:36px minmax(0,1fr) 82px;gap:7px;padding:8px}.number{width:32px;height:32px;font-size:11px}.candidate-name{font-size:10px}.candidate-id{font-size:8px}.candidate-row input{height:38px;font-size:13px}.fields{gap:8px}.field input{height:40px}.summary{gap:6px}.sum-box{padding:9px 5px}.sum-box strong{font-size:18px}.sum-box span{font-size:8px}.btn{width:100%}.actions{display:grid}}
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="topline"></div>
+<header>
+  <div class="brand">
+    <img src="assets/images/logo-sipitung.png" alt="Logo SIPITUNG 2026">
+    <div><div class="eyebrow">SISTEM INFORMASI PENGHITUNGAN SUARA TERINTEGRASI</div><h1>FORMULIR PETUGAS TPS</h1><div class="subtitle">PILKADES SERENTAK 2026</div></div>
+  </div>
+  <div class="banner">🔒 AKSES KHUSUS PETUGAS • SATU PENGIRIMAN PER TPS</div>
+</header>
+<main>
+  <div id="status" class="status info show">Memeriksa tautan akses TPS…</div>
+  <section id="formArea" class="hidden">
+    <div class="panel">
+      <h2 class="panel-title">IDENTITAS TPS</h2>
+      <div class="identity">
+        <div class="identity-item"><small>Desa</small><strong id="desa">—</strong></div>
+        <div class="identity-item"><small>Dusun</small><strong id="dusun">—</strong></div>
+        <div class="identity-item"><small>Nomor TPS</small><strong id="tps">—</strong></div>
+      </div>
+      <div class="dpt">
+        <div class="dpt-box"><strong id="dptL">0</strong><span>DPT Laki-laki</span></div>
+        <div class="dpt-box"><strong id="dptP">0</strong><span>DPT Perempuan</span></div>
+        <div class="dpt-box"><strong id="dptTotal">0</strong><span>Total DPT</span></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">JUMLAH PEMILIH HADIR</h2>
+      <div class="fields">
+        <div class="field"><label for="hadirL">Hadir laki-laki</label><input id="hadirL" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></div>
+        <div class="field"><label for="hadirP">Hadir perempuan</label><input id="hadirP" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">PEROLEHAN SUARA CALON</h2>
+      <div id="candidateList" class="candidate-list"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">SUARA TIDAK SAH</h2>
+      <div class="field"><label for="invalidVotes">Jumlah suara tidak sah</label><input id="invalidVotes" type="number" min="0" step="1" inputmode="numeric" value="0"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="panel-title">REKAP OTOMATIS</h2>
+      <div class="summary">
+        <div class="sum-box"><strong id="sumValid">0</strong><span>Suara sah</span></div>
+        <div class="sum-box"><strong id="sumInvalid">0</strong><span>Tidak sah</span></div>
+        <div class="sum-box"><strong id="sumTotal">0</strong><span>Total suara</span></div>
+      </div>
+    </div>
+
+    <div class="panel actions">
+      <div class="hint">Periksa kembali angka berdasarkan rekap resmi TPS sebelum mengirim. Setelah berhasil tersimpan, TPS ini tidak dapat mengirim ulang melalui formulir.</div>
+      <button id="submitBtn" class="btn" type="button">KIRIM HASIL TPS</button>
+    </div>
+  </section>
+</main>
+<footer class="footer">SIPITUNG 2026 • FORMULIR INPUT PETUGAS TPS</footer>
+</div>
+
+<iframe name="apiFrame" id="apiFrame" class="hidden" title="Koneksi SIPITUNG"></iframe>
+<form id="apiForm" class="hidden" method="post" target="apiFrame" enctype="application/x-www-form-urlencoded">
+  <input type="hidden" name="payload" id="apiPayload">
+</form>
+
+<script>
+(() => {
+  'use strict';
+
+  // WAJIB diisi setelah Web App Apps Script selesai di-deploy.
+  const API_URL = 'https://script.google.com/macros/s/AKfycbzTYJDhgmUjYtCk7JqTQxfEWxQJh01nDX9YAaPvptCLkPLt5f4m2QHqrgc3lkL3yelF/exec';
+
+  const $ = id => document.getElementById(id);
+  const frame = $('apiFrame');
+  const form = $('apiForm');
+  const payloadField = $('apiPayload');
+  const statusBox = $('status');
+  const submitBtn = $('submitBtn');
+  let token = '';
+  let tpsData = null;
+  let busy = false;
+
+  function showStatus(message, type='info') {
+    statusBox.textContent = message;
+    statusBox.className = 'status show ' + type;
+  }
+
+  function numberValue(id) {
+    const raw = $(id).value.trim();
+    if (raw === '') throw new Error('Mohon lengkapi seluruh kolom angka.');
+    const n = Number(raw);
+    if (!Number.isSafeInteger(n) || n < 0) throw new Error('Angka harus bilangan bulat nol atau lebih.');
+    return n;
+  }
+
+  function sendToServer(payload) {
+    if (API_URL.startsWith('GANTI_')) {
+      showStatus('Alamat Web App Apps Script belum dipasang. Formulir belum dapat terhubung.', 'err');
+      return;
+    }
+    payloadField.value = JSON.stringify(payload);
+    form.action = API_URL;
+    form.submit();
+  }
+
+  function renderIdentity(data) {
+    tpsData = data.tps;
+    $('desa').textContent = data.tps.desa;
+    $('dusun').textContent = data.tps.dusun;
+    $('tps').textContent = data.tps.nama;
+    $('dptL').textContent = Number(data.tps.dpt_l).toLocaleString('id-ID');
+    $('dptP').textContent = Number(data.tps.dpt_p).toLocaleString('id-ID');
+    $('dptTotal').textContent = (Number(data.tps.dpt_l)+Number(data.tps.dpt_p)).toLocaleString('id-ID');
+
+    $('candidateList').innerHTML = data.calon.map((c, i) => `
+      <div class="candidate-row">
+        <div class="number">${String(c.no_urut).padStart(2,'0')}</div>
+        <div><div class="candidate-name">${escapeHtml(c.nama_calon)}</div><div class="candidate-id">Nomor urut ${escapeHtml(c.no_urut)}</div></div>
+        <input type="number" min="0" step="1" inputmode="numeric" value="0" data-candidate-id="${escapeHtml(c.id_calon)}" aria-label="Suara ${escapeHtml(c.nama_calon)}">
+      </div>`).join('');
+
+    $('formArea').classList.remove('hidden');
+    document.querySelectorAll('#formArea input').forEach(el => el.addEventListener('input', updateSummary));
+    updateSummary();
+    showStatus('Identitas TPS berhasil diverifikasi. Silakan isi hasil penghitungan.', 'ok');
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  }
+
+  function updateSummary() {
+    const voteInputs = [...document.querySelectorAll('[data-candidate-id]')];
+    const valid = voteInputs.reduce((sum, el) => sum + Math.max(0, Number(el.value) || 0), 0);
+    const invalid = Math.max(0, Number($('invalidVotes').value) || 0);
+    $('sumValid').textContent = valid.toLocaleString('id-ID');
+    $('sumInvalid').textContent = invalid.toLocaleString('id-ID');
+    $('sumTotal').textContent = (valid+invalid).toLocaleString('id-ID');
+  }
+
+  function lookup() {
+    const hash = new URLSearchParams(location.hash.slice(1));
+    token = hash.get('token') || '';
+    // Hilangkan token dari address bar setelah dibaca; token tidak masuk query URL.
+    history.replaceState(null, '', location.pathname + location.search);
+    if (!token) {
+      showStatus('Token akses tidak ditemukan. Gunakan tautan resmi dari penyelenggara.', 'err');
+      return;
+    }
+    showStatus('Memverifikasi token dan memuat identitas TPS…', 'info');
+    sendToServer({action:'lookup', token});
+  }
+
+  function submitResult() {
+    if (busy || !tpsData) return;
+    try {
+      const hadirL = numberValue('hadirL');
+      const hadirP = numberValue('hadirP');
+      const tidakSah = numberValue('invalidVotes');
+      if (hadirL > Number(tpsData.dpt_l)) throw new Error('Hadir laki-laki melebihi DPT laki-laki.');
+      if (hadirP > Number(tpsData.dpt_p)) throw new Error('Hadir perempuan melebihi DPT perempuan.');
+      const votes = [...document.querySelectorAll('[data-candidate-id]')].map(el => ({
+        id_calon: el.dataset.candidateId,
+        suara: numberValueFromElement(el)
+      }));
+      const suaraSah = votes.reduce((s, v) => s + v.suara, 0);
+      const total = suaraSah + tidakSah;
+      if (total > hadirL + hadirP) throw new Error('Total suara melebihi jumlah pemilih hadir.');
+      const confirmText = `Kirim hasil ${tpsData.nama}?\n\nHadir: ${hadirL+hadirP}\nSuara sah: ${suaraSah}\nTidak sah: ${tidakSah}\nTotal suara: ${total}\n\nPastikan seluruh angka sudah benar. Pengiriman hanya dapat dilakukan satu kali.`;
+      if (!confirm(confirmText)) return;
+      busy = true;
+      submitBtn.disabled = true;
+      showStatus('Mengirim hasil ke server. Jangan tutup halaman…', 'info');
+      sendToServer({action:'submit', token, hadir_l:hadirL, hadir_p:hadirP, suara_tidak_sah:tidakSah, votes});
+    } catch (err) {
+      showStatus(err.message, 'err');
+    }
+  }
+
+  function numberValueFromElement(el) {
+    const raw = el.value.trim();
+    if (raw === '') throw new Error('Mohon isi suara untuk setiap calon. Isi 0 jika tidak memperoleh suara.');
+    const n = Number(raw);
+    if (!Number.isSafeInteger(n) || n < 0) throw new Error('Suara calon harus bilangan bulat nol atau lebih.');
+    return n;
+  }
+
+  window.addEventListener('message', event => {
+    if (event.source !== frame.contentWindow) return;
+    const message = event.data;
+    if (!message || message.type !== 'SIPITUNG_RESULT' || !message.data) return;
+    const result = message.data;
+    if (result.status !== 'success') {
+      busy = false;
+      submitBtn.disabled = false;
+      showStatus(result.message || 'Permintaan gagal diproses.', 'err');
+      return;
+    }
+    if (result.tps && result.calon) {
+      renderIdentity(result);
+      return;
+    }
+    if (result.tps && result.total_suara !== undefined) {
+      showStatus(`BERHASIL. Hasil ${result.tps} sudah diterima server. Suara sah ${Number(result.suara_sah).toLocaleString('id-ID')}, tidak sah ${Number(result.suara_tidak_sah).toLocaleString('id-ID')}, total ${Number(result.total_suara).toLocaleString('id-ID')}.`, 'ok');
+      $('formArea').classList.add('hidden');
+      return;
+    }
+    showStatus(result.message || 'Server merespons tanpa data yang dikenali.', 'err');
+  });
+
+  submitBtn.addEventListener('click', submitResult);
+  lookup();
+})();
+</script>
+</body>
+</html>

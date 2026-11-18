@@ -1,4 +1,4 @@
-SIPITUNG 2026 — Paket navigasi 4 halaman
+SIPITUNG 2026 — Paket navigasi dan formulir entry TPS
 
 File yang ditambahkan/diganti:
 - index.html : halaman 01 Countdown + navigasi.
@@ -23,3 +23,10 @@ Catatan:
 - Halaman hasil menampilkan peraih suara terbanyak sementara, bukan penetapan resmi.
 - Halaman calon memakai data master dan foto resmi yang tersedia pada repository sumber.
 - Navigasi halaman 03 mengarah ke dashboard.html yang sudah ada.
+
+
+Integrasi formulir petugas TPS:
+- entry.html sudah terhubung ke Web App Apps Script SIPITUNG.
+- Buka formulir melalui GitHub Pages dengan tautan token TPS resmi.
+- Jangan membagikan token TPS di tempat umum.
+- Uji lookup token dan simulasi/pengiriman sesuai prosedur sebelum hari pelaksanaan.
