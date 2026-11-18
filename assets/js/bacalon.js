@@ -177,7 +177,7 @@ const bacalon = [
   {
     "id": "SBR-001",
     "desa": "Sumberagung",
-    "no_urut": 1,
+    "no_urut": 2,
     "nama": "EKO HARMONO",
     "tempat_lahir": "BLITAR",
     "tanggal_lahir": "18 januari 1977",
@@ -211,7 +211,7 @@ const bacalon = [
   {
     "id": "SBR-002",
     "desa": "Sumberagung",
-    "no_urut": 2,
+    "no_urut": 1,
     "nama": "CASLAM",
     "tempat_lahir": "BLITAR",
     "tanggal_lahir": "25 Desember 1971",
