@@ -19,6 +19,11 @@ body{overflow:hidden}
 .kicker{font-size:9px;font-weight:900;letter-spacing:1.7px;color:var(--blue)}
 h1{font-size:clamp(20px,2vw,29px);line-height:1.12;margin:2px 0;color:var(--navy);font-weight:900}
 .subtitle{font-size:10px;color:#a51f2b;font-weight:800}
+.page-nav{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin-top:7px}
+.page-nav a{display:inline-flex;align-items:center;justify-content:center;padding:5px 10px;border-radius:7px;background:#0875d1;color:#fff;text-decoration:none;font-size:8px;font-weight:900;letter-spacing:.15px;white-space:nowrap;box-shadow:0 2px 5px #082d6820}
+.page-nav a[aria-current="page"]{background:#082d68;outline:2px solid #c7dcf4;outline-offset:1px}
+.page-nav a:hover{filter:brightness(.93)}
+
 .villages{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .village{--accent:var(--blue);min-width:0;min-height:0;background:#fff;border:1px solid #d3e1f1;border-radius:13px;padding:9px;display:flex;flex-direction:column;gap:7px;box-shadow:0 5px 16px #082d6810;overflow:hidden}
 .village:nth-child(2){--accent:var(--green)}.village:nth-child(3){--accent:var(--orange)}
@@ -49,6 +54,12 @@ h1{font-size:clamp(20px,2vw,29px);line-height:1.12;margin:2px 0;color:var(--navy
 <div class="kicker">PILKADES SERENTAK 2026 • KECAMATAN SELOREJO</div>
 <h1>FOTO CALON KEPALA DESA</h1>
 <div class="subtitle">Kenali seluruh calon di setiap desa penyelenggara</div>
+<nav class="page-nav" aria-label="Navigasi halaman">
+  <a href="index.html">01 • COUNTDOWN</a>
+  <a href="calon.html" aria-current="page">02 • FOTO CALON</a>
+  <a href="dashboard.html">03 • QUICK COUNT</a>
+  <a href="hasil.html">04 • HASIL &amp; PEMENANG</a>
+</nav>
 </header>
 <main class="villages" id="candidate-list"><div class="empty">Memuat seluruh data calon...</div></main>
 <footer class="footer">SIPITUNG 2026 • PILKADES KECAMATAN SELOREJO</footer>
