@@ -205,7 +205,7 @@ const bacalon = [
       "Mengoptimalkan pengelolaan sumber daya desa untuk kepentingan masyarakat."
     ],
     "motto": "“Kerja Nyata untuk Desa yang Lebih Baik.”",
-    "foto_resmi": "sbr-01-foto.png",
+    "foto_resmi": "sbr-02-foto.png",
     "foto_informal": ""
   },
   {
@@ -239,7 +239,7 @@ const bacalon = [
       "Mewujudkan masyarakat yang mandiri, sejahtera, guyub, dan berdaya saing."
     ],
     "motto": "“Guyub, Transparan, dan Berkemajuan.”",
-    "foto_resmi": "sbr-02-foto.png",
+    "foto_resmi": "sbr-01-foto.png",
     "foto_informal": ""
   }
 ];
