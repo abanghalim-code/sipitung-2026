@@ -63,9 +63,11 @@ h1{font-size:clamp(23px,2.4vw,34px);line-height:1.08;margin:3px 0;color:#082d68;
    const vals=[1,2,3].map(i=>Math.max(0,Number(d['calon_'+i]||0)));
    const total=vals.reduce((a,b)=>a+b,0);
    const candidates=vals.map((v,i)=>({no:i+1,name:names[norm(d.desa)]?.[i+1]||`CALON ${i+1}`,votes:v,pct:total?v/total*100:0}));
-   const active=candidates.filter(x=>x.votes>0),leader=active.length?active[0]:null;
+   // Urutkan peringkat berdasarkan suara tertinggi; nomor calon tetap melekat pada nama.
+   const ranked=[...candidates].sort((a,b)=>b.votes-a.votes||a.no-b.no);
+   const active=ranked.filter(x=>x.votes>0),leader=active.length?active[0]:null;
    const tied=leader&&active.filter(x=>x.votes===leader.votes).length>1;
-   const rows=candidates.map(c=>`<div class="candidate"><div class="rank">${c.no}</div><div class="name" title="${esc(c.name)}">${esc(c.name)}</div><div class="votes">${fmt(c.votes)}<small>${c.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})}%</small></div></div>`).join('');
+   const rows=ranked.map((c,index)=>`<div class="candidate"><div class="rank">${index+1}</div><div class="name" title="${esc(c.name)}">${esc(c.name)}</div><div class="votes">${fmt(c.votes)}<small>${c.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})}%</small></div></div>`).join('');
    const legend=candidates.map(c=>`<div class="legend-row"><div class="legend-name"><i class="swatch" style="background:${colors[c.no]}"></i><span>${esc(c.name)}</span></div><div class="legend-pct">${c.pct.toLocaleString('id-ID',{maximumFractionDigits:1})}%</div></div>`).join('');
    const winner=`<div class="winner"><b>${leader?(tied?'PERINGKAT TERATAS SEMENTARA — IMBANG':'PERAIH SUARA TERBANYAK SEMENTARA'):'BELUM ADA SUARA MASUK'}</b><strong>${leader?(tied?active.filter(x=>x.votes===leader.votes).map(x=>esc(x.name)).join(' &amp; '):esc(leader.name)):'Menunggu hasil TPS'}</strong><span>${leader?fmt(leader.votes)+' suara • '+leader.pct.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2})+'%':'Belum dapat ditentukan'}</span></div>`;
    return `<article class="card"><header class="card-head"><h2>${esc(d.desa)}</h2><small>DPT ${fmt(d.dpt_total)} • Suara masuk ${fmt(d.suara_masuk_total)}</small></header><div class="candidates">${rows}</div><div class="chart"><div class="chart-title">GRAFIK PERBANDINGAN PEROLEHAN SUARA</div><div class="chart-body">${donut(vals,total)}<div class="legend">${legend}</div></div></div>${winner}</article>`;
